@@ -165,8 +165,7 @@ section.hero-section {
   padding: 32px;
   direction: rtl;
   background: linear-gradient(270deg, #ffebf1 0%, #ffffff 100%);
-  max-height: 700px;
-  /* flex-wrap: wrap; */
+  max-height: 600px;
 }
 
 .health-text {
@@ -175,8 +174,8 @@ section.hero-section {
 }
 .health-text h3 {
   color: #c83067;
-  font-size: clamp(12px, 4vw, 60px);
-  margin-bottom: 0.6rem;
+  font-size: clamp(12px, 4vw, 50px);
+  margin-bottom: 2rem;
   text-align: right;
   font-weight: 700;
   line-height: 1.2;
@@ -184,10 +183,10 @@ section.hero-section {
 .health-text p {
   color: #444;
   line-height: 1.8;
-  font-size: clamp(12px, 3vw, 42px);
+  font-size: clamp(12px, 3vw, 38px);
   text-align: right;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .circle-wrapper {
@@ -210,6 +209,11 @@ section.hero-section {
   text-align: center;
 
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 .health-circle .percent {
@@ -226,20 +230,44 @@ section.hero-section {
   direction: rtl;
 }
 
-.health-circle.pink {
-  width: 42%;
-  background: #efd8f5;
-  left: 70%;
+.health-circle.pink.active {
   top: 29%;
+  left: 70%;
+  width: 42%;
+  opacity: 1;
   transform: translate(-50%, -50%);
+  background: #efd8f5;
   box-shadow: -2px 3px 7px 2px #f3c3fc;
 }
+.health-circle.blue.active {
+  top: 50%;
+  left: 28%;
+  width: 40%;
+  opacity: 1;
+  background: #c8efff;
+  transform: translate(-50%, -50%);
+  box-shadow: -2px 3px 7px 2px #a5d7ec;
+}
 
+.health-circle.green.active {
+  top: 73%;
+  left: 69%;
+  width: 34%;
+  opacity: 1;
+  background: #d4fade;
+  box-shadow: -2px 3px 7px 2px #a9eab8;
+  transform: translate(-50%, -50%);
+}
+
+.health-circle.pink {
+  width: 42%;
+  transform: translate(-50%, -50%);
+  background: #efd8f5;
+  box-shadow: -2px 3px 7px 2px #f3c3fc;
+}
 .health-circle.blue {
   width: 40%;
   background: #c8efff;
-  left: 28%;
-  top: 50%;
   transform: translate(-50%, -50%);
   box-shadow: -2px 3px 7px 2px #a5d7ec;
 }
@@ -247,10 +275,92 @@ section.hero-section {
 .health-circle.green {
   width: 34%;
   background: #d4fade;
-  left: 69%;
-  top: 73%;
-  transform: translate(-50%, -50%);
   box-shadow: -2px 3px 7px 2px #a9eab8;
+  transform: translate(-50%, -50%);
+}
+
+/* Features section */
+
+/* سکشن اصلی */
+.app-features {
+  padding: 3rem 1rem;
+  text-align: center;
+  direction: rtl;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features-heading {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #111;
+}
+
+/* گرید اصلی */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* کارت‌ها */
+.feature-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.8rem 1.4rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+/* عنوان */
+.feature-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+}
+
+/* متن */
+.feature-text {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* آیکون ساختگی – بعداً تصویر می‌ذاری */
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* رنگ‌بندی مخصوص هر کارت */
+.card-nutrition {
+  background: #f4d7ff;
+}
+
+.card-chat {
+  background: #ffe0ec;
+}
+
+.card-supplements {
+  background: #fff1c6;
+}
+
+.card-fitness {
+  background: #e3f7dd;
+}
+
+.card-weight {
+  background: #e0f2ff;
 }
 
 @keyframes pulse {
@@ -266,6 +376,21 @@ section.hero-section {
     transform: translateY(-50%) scale(1);
     opacity: 0.6;
   }
+}
+@keyframes arcMove {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    transform: translate(-50%, -70%) scale(1.05); /* کمی بالا بره */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.health-circle.active {
+  animation: arcMove 1s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 @media (max-width: 768px) {
@@ -287,6 +412,7 @@ section.hero-section {
   }
   .health-text h3 {
     font-size: clamp(12px, 2.2vw, 28px);
+    margin-bottom: 0.6rem;
   }
   .health-text p {
     font-size: clamp(12px, 1.3vw, 18px);
@@ -294,22 +420,22 @@ section.hero-section {
   .circle-wrapper {
     min-width: auto !important;
   }
-  .health-circle.pink {
+
+  .health-circle.pink.active {
     width: 50%;
     left: 82%;
     top: 22%;
   }
-  .health-circle.blue {
+  .health-circle.blue.active {
     width: 50%;
     left: 28%;
     top: 50%;
   }
-  .health-circle.green {
+
+  .health-circle.green.active {
     width: 40%;
-    background: #d4fade;
     left: 77%;
     top: 72%;
-    transform: translate(-50%, -50%);
   }
 }
 
@@ -328,20 +454,32 @@ section.hero-section {
   .circle {
     border-width: 2px;
   }
-  .health-circle.green {
-    width: 55%;
-    left: 70%;
-    top: 85%;
+
+  .health-circle.pink.active {
+    width: 60%;
+    left: 77%;
+    top: 22%;
   }
-  .health-circle.blue {
+  .health-circle.blue.active {
     width: 62%;
     left: 15%;
     top: 50%;
   }
+
+  .health-circle.green.active {
+    width: 55%;
+    left: 70%;
+    top: 85%;
+  }
+
+  .health-circle.green {
+    width: 55%;
+  }
+  .health-circle.blue {
+    width: 62%;
+  }
   .health-circle.pink {
     width: 60%;
-    left: 77%;
-    top: 22%;
   }
   .circle-wrapper {
     min-width: auto !important;

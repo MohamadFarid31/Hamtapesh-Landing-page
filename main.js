@@ -56,3 +56,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", safeUpdate);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector(".health-section");
+  const circles = document.querySelectorAll(".health-circle");
+
+  if (!section || circles.length === 0) return;
+
+  // تابع فعال‌سازی انیمیشن
+  const activateCircles = () => {
+    circles.forEach((circle, index) => {
+      setTimeout(() => {
+        circle.classList.add("active");
+      }, index * 250); // تاخیر تدریجی
+    });
+  };
+
+  // تابع برگشت به حالت اولیه
+  const resetCircles = () => {
+    circles.forEach((circle) => {
+      circle.classList.remove("active");
+    });
+  };
+
+  // استفاده از IntersectionObserver برای تشخیص ورود/خروج سکشن از دید کاربر
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activateCircles();
+        } else {
+          resetCircles();
+        }
+      });
+    },
+    { threshold: 0.4 } // وقتی حدود 40٪ سکشن دیده شد فعال بشه
+  );
+
+  observer.observe(section);
+});
