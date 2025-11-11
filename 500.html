@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>۵۰۰ - خطای سرور | هم‌تپش</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: "Vazir";
+        src: url("fonts/Vazir.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      * {
+        font-family: "Vazir", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center px-4">
+      <div class="max-w-lg w-full text-center">
+        <!-- Error Code -->
+        <div class="mb-8">
+          <h1 class="text-9xl font-bold text-red-600 mb-4">۵۰۰</h1>
+          <div class="w-32 h-1 bg-red-600 mx-auto mb-8"></div>
+        </div>
+
+        <!-- Message -->
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">خطای سرور</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          متأسفانه مشکلی در سرور پیش آمده است. لطفاً چند دقیقه دیگر دوباره تلاش
+          کنید.
+        </p>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onclick="location.reload()"
+            class="bg-red-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition"
+          >
+            تلاش مجدد
+          </button>
+          <a
+            href="/"
+            class="bg-white border-2 border-red-600 text-red-600 px-8 py-3 rounded-full font-semibold hover:bg-red-50 transition"
+          >
+            بازگشت به صفحه اصلی
+          </a>
+        </div>
+
+        <!-- Illustration -->
+        <div class="mt-12">
+          <svg
+            class="w-64 h-64 mx-auto text-gray-300"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+
+        <!-- Support Info -->
+        <div class="mt-8 text-sm text-gray-500">
+          <p>در صورت تکرار این خطا، لطفاً با پشتیبانی تماس بگیرید:</p>
+          <p class="mt-2">
+            <a
+              href="mailto:info@hamtapesh.com"
+              class="text-red-600 hover:underline"
+              >info@hamtapesh.com</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

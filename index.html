@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary Meta Tags -->
+    <title>هم‌تپش - اپلیکیشن بارداری هم‌تپش</title>
+    <meta name="title" content="هم‌تپش - اپلیکیشن بارداری هم‌تپش" />
+    <meta name="description" content="متون متا. " />
+    <meta name="keywords" content="مشاوره  , سلامت  , هم‌تپش" />
+    <meta name="author" content="Ham Tapesh" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Persian" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hamtapesh.com/" />
+    <meta property="og:title" content="هم‌تپش - اپلیکیشن بارداری هم‌تپش" />
+    <meta property="og:description" content="متون متا" />
+    <meta
+      property="og:image"
+      content="https://hamtapesh.com/assets/og-image.jpg"
+    />
+    <meta property="og:site_name" content="هم‌تپش" />
+    <meta property="og:locale" content="fa_IR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://hamtapesh.com/" />
+    <meta property="twitter:title" content="هم‌تپش - اپلیکیشن بارداری هم‌تپش" />
+    <meta property="twitter:description" content="متون متا" />
+    <meta
+      property="twitter:image"
+      content="https://hamtapesh.com/assets/twitter-image.jpg"
+    />
+
+    <!-- Security Headers -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: https:; font-src 'self' data:;"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta
+      http-equiv="Referrer-Policy"
+      content="strict-origin-when-cross-origin"
+    />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#C2185B" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="هم‌تپش" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hamtapesh.com/" />
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+
+    <!-- Tailwind Config for RTL and Custom Theme -->
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ["Vazir", "sans-serif"],
+            vazir: ["Vazir", "sans-serif"],
+          },
+        },
+      };
+    </script>
+
+    <!-- Custom Styles -->
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "هم‌تپش",
+        "description": "اپلیکیشن بارداری هم‌تپش",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": ["Android", "iOS"],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "IRR"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.5",
+          "ratingCount": "1200"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Header / Navigation -->
+    <header
+      class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300"
+    >
+      <!-- <nav class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+           <div class="flex items-center">
+            <a href="#" class="flex items-center space-x-2 space-x-reverse">
+              <div
+                class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="text-white text-xl font-bold">ه</span>
+              </div>
+              <span class="text-xl font-bold text-gray-800">هم‌تپش</span>
+            </a>
+          </div>
+
+           <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+            <a
+              href="#features"
+              class="text-gray-600 hover:text-primary-600 transition"
+              >ویژگی‌ها</a
+            >
+            <a
+              href="#how-it-works"
+              class="text-gray-600 hover:text-primary-600 transition"
+              >نحوه استفاده</a
+            >
+            <a
+              href="#download"
+              class="text-gray-600 hover:text-primary-600 transition"
+              >دانلود</a
+            >
+            <a
+              href="#faq"
+              class="text-gray-600 hover:text-primary-600 transition"
+              >سوالات متداول</a
+            >
+            <a
+              href="#contact"
+              class="bg-primary-600 text-white px-6 py-2 rounded-full hover:bg-primary-700 transition btn-primary"
+            >
+              تماس با ما
+            </a>
+          </div>
+
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden text-gray-600 focus:outline-none"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+          <div class="flex flex-col space-y-4">
+            <a
+              href="#features"
+              class="text-gray-600 hover:text-primary-600 transition"
+              >ویژگی‌ها</a
+            >
+            <a
+              href="#how-it-works"
+              class="text-gray-600 hover:text-primary-600 transition"
+              >نحوه استفاده</a
+            >
+            <a
+              href="#download"
+              class="text-gray-600 hover:text-primary-600 transition"
+              >دانلود</a
+            >
+            <a
+              href="#faq"
+              class="text-gray-600 hover:text-primary-600 transition"
+              >سوالات متداول</a
+            >
+            <a
+              href="#contact"
+              class="bg-primary-600 text-white px-6 py-2 rounded-full hover:bg-primary-700 transition text-center"
+            >
+              تماس با ما
+            </a>
+          </div>
+        </div>
+      </nav> -->
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section relative overflow-hidden">
+        <div id="pink-bg">
+          <div class="hero-content">
+            <h1>هر روز بارداری مهمه!</h1>
+            <h3>هم‌تپش همراه روزانه تو، برای یک بارداری سالم...</h3>
+            <a href="#"><p>دانلود هم‌تپش</p> </a>
+          </div>
+          <div
+            class="hero-img-container z-10"
+            style="max-width: 380px; width: 30%"
+          >
+            <img
+              id="hero-img"
+              src="assets/hero-phone.png"
+              alt="هم‌تپش اپلیکیشن"
+              loading="lazy"
+            />
+          </div>
+          <div class="circle circle-1"></div>
+          <div class="circle circle-2"></div>
+          <div class="circle circle-3"></div>
+          <div class="circle circle-4"></div>
+          <div class="circle-5"></div>
+        </div>
+      </section>
+
+      <!-- HTML: همان ساختار شما؛ فقط wrapper عرض و ترتیب دارد -->
+      <section class="health-section cards-container">
+        <div class="health-text">
+          <h3>سلامت مادر، رشد سالم جنین</h3>
+          <p>
+            هم‌تپش در راستای ارتقاء سلامت بارداری و ایفای مسئولیت اجتماعی،
+            اپلیکیشن خود را به صورت رایگان در اختیار جامعه مادران باردار قرار
+            داده است.
+          </p>
+        </div>
+
+        <div class="circle-wrapper">
+          <div class="health-circle pink">
+            <span class="percent">٪۴۵</span>
+            <p>کاهش خطر دیابت با ورزش‌های ایمن دوران بارداری</p>
+          </div>
+          <div class="health-circle blue">
+            <span class="percent">٪۷۰</span>
+            <p>کاهش احتمال نقص عصبی جنین با مصرف کافی فولیک اسید</p>
+          </div>
+          <div class="health-circle green">
+            <span class="percent">٪۳۲</span>
+            <p>کاهش نوسان وزن و فشار خون سالم‌تر در بارداری</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              سوالات متداول
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              پاسخ سوالات رایج درباره هم‌تپش
+            </p>
+          </div>
+
+          <div class="max-w-3xl mx-auto space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
+              <input type="checkbox" id="faq1" class="hidden peer" />
+              <label
+                for="faq1"
+                class="flex items-center justify-between p-6 cursor-pointer"
+              >
+                <h3 class="text-lg font-semibold text-gray-900">
+                  آیا اطلاعات من محفوظ است؟
+                </h3>
+                <svg
+                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </label>
+              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
+                بله، تمامی اطلاعات شما با استفاده از بالاترین استانداردهای
+                امنیتی رمزگذاری و محفوظ نگهداری می‌شود. ما به حریم خصوصی شما
+                احترام می‌گذاریم.
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
+              <input type="checkbox" id="faq2" class="hidden peer" />
+              <label
+                for="faq2"
+                class="flex items-center justify-between p-6 cursor-pointer"
+              >
+                <h3 class="text-lg font-semibold text-gray-900">
+                  هزینه مشاوره چقدر است؟
+                </h3>
+                <svg
+                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </label>
+              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
+                هزینه مشاوره بستگی به نوع خدمات (تلفنی، ویدیویی، چت) و روانشناس
+                انتخابی شما دارد. قیمت‌ها در پروفایل هر روانشناس قابل مشاهده
+                است.
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
+              <input type="checkbox" id="faq3" class="hidden peer" />
+              <label
+                for="faq3"
+                class="flex items-center justify-between p-6 cursor-pointer"
+              >
+                <h3 class="text-lg font-semibold text-gray-900">
+                  آیا می‌توانم روانشناس خود را تغییر دهم؟
+                </h3>
+                <svg
+                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </label>
+              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
+                بله، شما می‌توانید در هر زمان روانشناس خود را تغییر دهید. هدف ما
+                راحتی و رضایت شماست.
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
+              <input type="checkbox" id="faq4" class="hidden peer" />
+              <label
+                for="faq4"
+                class="flex items-center justify-between p-6 cursor-pointer"
+              >
+                <h3 class="text-lg font-semibold text-gray-900">
+                  چطور وقت مشاوره بگیرم؟
+                </h3>
+                <svg
+                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </label>
+              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
+                پس از ورود به اپلیکیشن، روانشناس مورد نظر خود را انتخاب کنید و
+                از تقویم اوقات فراغت، زمان مناسب را رزرو نمایید.
+              </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
+              <input type="checkbox" id="faq5" class="hidden peer" />
+              <label
+                for="faq5"
+                class="flex items-center justify-between p-6 cursor-pointer"
+              >
+                <h3 class="text-lg font-semibold text-gray-900">
+                  آیا مشاوره آنلاین موثر است؟
+                </h3>
+                <svg
+                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </label>
+              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
+                بله، مطالعات نشان داده که مشاوره آنلاین به اندازه مشاوره حضوری
+                موثر است و در برخی موارد حتی راحت‌تر و کارآمدتر می‌باشد.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-12 mb-12">
+          <!-- About -->
+          <div>
+            <div class="flex items-center mb-6">
+              <div
+                class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center ml-3"
+              >
+                <span class="text-white text-xl font-bold">ه</span>
+              </div>
+              <span class="text-xl font-bold text-white">هم‌تپش</span>
+            </div>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              پلتفرم مشاوره روانشناسی آنلاین برای دسترسی آسان به سلامت روان
+            </p>
+            <!-- Social Media -->
+            <div class="flex gap-3">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121L7.773 13.82l-2.938-.918c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-white font-bold text-lg mb-6">دسترسی سریع</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#features" class="hover:text-primary-400 transition"
+                  >ویژگی‌ها</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#how-it-works"
+                  class="hover:text-primary-400 transition"
+                  >نحوه استفاده</a
+                >
+              </li>
+              <li>
+                <a href="#download" class="hover:text-primary-400 transition"
+                  >دانلود</a
+                >
+              </li>
+              <li>
+                <a href="#faq" class="hover:text-primary-400 transition"
+                  >سوالات متداول</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-primary-400 transition"
+                  >تماس با ما</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h3 class="text-white font-bold text-lg mb-6">خدمات</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="hover:text-primary-400 transition"
+                  >مشاوره فردی</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary-400 transition"
+                  >مشاوره خانواده</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary-400 transition"
+                  >مشاوره کودک و نوجوان</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary-400 transition"
+                  >مشاوره ازدواج</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary-400 transition"
+                  >مشاوره شغلی</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div>
+            <h3 class="text-white font-bold text-lg mb-6">خبرنامه</h3>
+            <p class="text-gray-400 mb-4">
+              از آخرین اخبار و مطالب مفید باخبر شوید
+            </p>
+            <form class="space-y-3">
+              <input
+                type="email"
+                placeholder="ایمیل خود را وارد کنید"
+                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition text-white placeholder-gray-500"
+              />
+              <button
+                type="submit"
+                class="w-full bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition"
+              >
+                عضویت
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-800 pt-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-4"
+          >
+            <p class="text-gray-400 text-sm">
+              © ۱۴۰۳ هم‌تپش. تمامی حقوق محفوظ است.
+            </p>
+            <div class="flex gap-6 text-sm">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary-400 transition"
+                >قوانین و مقررات</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary-400 transition"
+                >حریم خصوصی</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary-400 transition"
+                >شرایط استفاده</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 left-8 bg-primary-600 text-white w-12 h-12 rounded-full shadow-lg hidden hover:bg-primary-700 transition transform hover:scale-110 z-40"
+    >
+      <svg
+        class="w-6 h-6 mx-auto"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Sticky Header
+      let lastScroll = 0;
+      const header = document.querySelector("header");
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll <= 0) {
+          header.classList.remove("shadow-lg");
+        } else {
+          header.classList.add("shadow-lg");
+        }
+
+        lastScroll = currentScroll;
+      });
+
+      // Back to Top Button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.remove("hidden");
+        } else {
+          backToTopBtn.classList.add("hidden");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Smooth Scroll for Anchor Links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Intersection Observer for Fade In Animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all feature cards and sections
+      document
+        .querySelectorAll(".feature-card, section > div")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+
+      // Form Validation
+      const contactForm = document.querySelector("form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Basic validation
+          const name = this.querySelector("#name").value.trim();
+          const email = this.querySelector("#email").value.trim();
+          const subject = this.querySelector("#subject").value.trim();
+          const message = this.querySelector("#message").value.trim();
+
+          if (!name || !email || !subject || !message) {
+            alert("لطفاً تمام فیلدها را پر کنید");
+            return;
+          }
+
+          // Email validation
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert("لطفاً یک ایمیل معتبر وارد کنید");
+            return;
+          }
+
+          // Success message (in production, send to server)
+          alert("پیام شما با موفقیت ارسال شد!");
+          this.reset();
+        });
+      }
+
+      // Newsletter Form
+      const newsletterForms = document.querySelectorAll("footer form");
+      newsletterForms.forEach((form) => {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]').value.trim();
+
+          if (!email) {
+            alert("لطفاً ایمیل خود را وارد کنید");
+            return;
+          }
+
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert("لطفاً یک ایمیل معتبر وارد کنید");
+            return;
+          }
+
+          alert("با موفقیت در خبرنامه عضو شدید!");
+          this.reset();
+        });
+      });
+    </script>
+  </body>
+</html>
