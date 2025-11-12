@@ -296,10 +296,11 @@ section.hero-section {
 }
 
 .features-heading {
-  font-size: clamp(1.3rem, 4vw, 3rem);
+  font-size:clamp(20px, 4vw, 54px);
   font-weight: 700;
   margin-bottom: 2.5rem;
   color: #111;
+  text-align: center;
 }
 .features-heading span {
   color: var(--primary-color);
@@ -308,16 +309,18 @@ section.hero-section {
 /* گرید اصلی */
 .features-grid {
   display: grid;
-  gap: 0.5rem;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
-/* کارت‌ها */
 .feature-card {
   background: #fff;
   border-radius: 20px;
   padding: 1.8rem 1.4rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
   transition: transform 0.2s ease;
+  overflow: hidden;
 }
 
 .feature-card:hover {
@@ -326,62 +329,187 @@ section.hero-section {
 
 /* عنوان */
 .feature-title {
-  font-size: 1.2rem;
+  position: relative;
+  font-size:clamp(16px, 4vw, 49px);
   font-weight: 700;
-  margin: 1rem 0 0.5rem;
+  margin: 2rem 0 0.5rem;
+  z-index: 1;
 }
 
 /* متن */
 .feature-text {
-  font-size: 0.95rem;
-  color: #444;
+  font-size: clamp(12px, 2.5vw, 35px);
   line-height: 1.7;
 }
 
 /* آیکون ساختگی – بعداً تصویر می‌ذاری */
 .feature-icon {
-  position:relative
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 60%;
+  max-width: 250px;
+}
+.icon-wrapper object.main-icon {
   width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 15px #f3c3fc);
+}
+.icon-shadow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  filter: blur(8px);
+  transform: scale(0.9);
+  z-index: 0;
 }
 .feature-sub-icon {
   position: absolute;
-  background: var(--primary-white-color);
+  bottom: -8%;
+  right: -8%;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px #f3c3fc;
+  width: 41%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--Colors-Hit-Hover, #c83067);
+}
+
+.feature-sub-icon object {
+  width: 52%;
+  height: auto;
+  border: none;
 }
 
 /* رنگ‌بندی مخصوص هر کارت */
 .card-nutrition {
-  grid-column: 1 / 5;
-  grid-row: 1 / 1;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
   background: #efd8f5a3;
 }
-.card-nutrition .feature-icon img {
-  max-width: 30%;
-  margin: auto;
+.card-nutrition .icon-shadow {
+  box-shadow: 0 15px 60px 26px #f3c3fc;
 }
 
 .card-chat {
-  grid-column: 5 / 6;
-  grid-row: 1 / 5;
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
   background: #ffe0ec;
+}
+.card-chat .feature-icon{
+  display:flex;
+  flex-direction : column
+}
+
+.first-chat{
+  width:100%
+}
+.first-chat object{
+  width :90%;
+  margin:auto;
+}
+.right-chat{
+  align-self: start;
+  width: 70%;
+  margin-top:0.5rem;
+ }
+ 
+.right-chat object{
+  width: 100%;
+}
+.right-chat:last-child object {
+  width: 70%;
+}
+
+.left-chat{
+
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.left-chat object{
+  width: 40%;
 }
 
 .card-supplements {
-  grid-row: 2 / 5;
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
   background: #fff1c6;
-  grid-column: 2 / 5;
-  background: #fff1c6;
+}
+.card-supplements .icon-wrapper object.main-icon {
+  /* box-shadow: 0 15px 60px 26px #ffd278; */
+  filter: drop-shadow(0 21px 14px #ffd278);
+}
+.card-supplements .icon-shadow {
+  background: #ffd278bb
+  box-shadow: -55px 20px 71px 101px #ffd278;
+  width: 43%;
+  right: 3%;
+  top: 20%;
+  bottom: 50%;
+  height: 50%;
 }
 
 .card-fitness {
   grid-column: 1 / 2;
-  grid-row: 2 / 6;
+  grid-row: 2 / 4;
   background: #e3f7dd;
+}
+.card-fitness .feature-sub-icon {
+  position: static;
+  /* bottom: -8%; */
+  /* right: -8%; */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: 0 0 0 0;
+  width: 100%;
+  aspect-ratio: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  margin-top: 30%;
+}
+.card-fitness .feature-sub-icon object {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.card-fitness .icon-shadow {
+    background: #a9eab8bb;
+    box-shadow: 2px 17px 50px 48px #a9eab8;
+    width: 59%;
+    right: 24%;
+    /* top: 0%; */
+    /* bottom: 50%; */
+    height: 60%;
+    border-radius: 50%;
+}
+ 
+.card-fitness .icon-wrapper  {
+    max-width: 500px;
+}
+.card-fitness .icon-wrapper object.main-icon {
+  filter: drop-shadow(0 8px 15px #a9eab8);
 }
 
 .card-weight {
-  grid-column: 2 / 6;
-  grid-row: 5 / 6;
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
   background: #e0f2ff;
+}
+.card-weight .icon-shadow {
+  background: #a5d7ec;
+  box-shadow: 0 3px 67px 66px #a5d7ec;
 }
 
 @keyframes pulse {
@@ -414,6 +542,31 @@ section.hero-section {
   animation: arcMove 1s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
+@media (max-width: 1080px) {
+  .features-grid {
+    grid-template-columns: 1fr; /* فقط یک ستون */
+    grid-template-rows: auto;   /* ارتفاع خودکار */
+  }
+
+  /* همه باکس‌ها پشت سر هم قرار می‌گیرن */
+  .card-nutrition,
+  .card-chat,
+  .card-supplements,
+  .card-fitness,
+  .card-weight {
+    grid-column: 1 / 2 !important;
+    grid-row: auto !important;
+  }
+  .first-chat {
+    width: 50%;
+}
+  .right-chat {
+    width: 47%;
+}
+  .left-chat object {
+    width: 30%;
+}
+}
 @media (max-width: 768px) {
   section.hero-section {
     height: auto;
@@ -458,6 +611,15 @@ section.hero-section {
     left: 77%;
     top: 72%;
   }
+  .first-chat {
+    width: 100%;
+}
+  .right-chat {
+    width: 70%;
+}
+  .left-chat object {
+    width: 40%;
+}
 }
 
 @media (max-width: 576px) {
