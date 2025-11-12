@@ -169,9 +169,18 @@ section.hero-section {
 }
 
 .health-text {
+  opacity: 0;
   flex: 1 1 48%;
   min-width: 260px;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.55, 0, 0.1, 1);
 }
+
+.health-text.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .health-text h3 {
   color: #c83067;
   font-size: clamp(12px, 4vw, 50px);
@@ -207,7 +216,6 @@ section.hero-section {
   align-items: center;
   padding: 6%;
   text-align: center;
-
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
   top: 50%;
   left: 50%;
@@ -281,27 +289,26 @@ section.hero-section {
 
 /* Features section */
 
-/* سکشن اصلی */
 .app-features {
-  padding: 3rem 1rem;
-  text-align: center;
+  padding: 3rem;
   direction: rtl;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
 .features-heading {
-  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-size: clamp(1.3rem, 4vw, 3rem);
   font-weight: 700;
   margin-bottom: 2.5rem;
   color: #111;
+}
+.features-heading span {
+  color: var(--primary-color);
 }
 
 /* گرید اصلی */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 /* کارت‌ها */
@@ -310,7 +317,6 @@ section.hero-section {
   border-radius: 20px;
   padding: 1.8rem 1.4rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-  text-align: center;
   transition: transform 0.2s ease;
 }
 
@@ -334,32 +340,47 @@ section.hero-section {
 
 /* آیکون ساختگی – بعداً تصویر می‌ذاری */
 .feature-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto;
-  border-radius: 16px;
-  background-size: cover;
-  background-position: center;
+  position:relative
+  width: 100%;
+}
+.feature-sub-icon {
+  position: absolute;
+  background: var(--primary-white-color);
 }
 
 /* رنگ‌بندی مخصوص هر کارت */
 .card-nutrition {
-  background: #f4d7ff;
+  grid-column: 1 / 5;
+  grid-row: 1 / 1;
+  background: #efd8f5a3;
+}
+.card-nutrition .feature-icon img {
+  max-width: 30%;
+  margin: auto;
 }
 
 .card-chat {
+  grid-column: 5 / 6;
+  grid-row: 1 / 5;
   background: #ffe0ec;
 }
 
 .card-supplements {
+  grid-row: 2 / 5;
+  background: #fff1c6;
+  grid-column: 2 / 5;
   background: #fff1c6;
 }
 
 .card-fitness {
+  grid-column: 1 / 2;
+  grid-row: 2 / 6;
   background: #e3f7dd;
 }
 
 .card-weight {
+  grid-column: 2 / 6;
+  grid-row: 5 / 6;
   background: #e0f2ff;
 }
 

@@ -56,41 +56,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", safeUpdate);
 });
-
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".health-section");
   const circles = document.querySelectorAll(".health-circle");
+  const text = document.querySelector(".health-text");
 
-  if (!section || circles.length === 0) return;
+  if (!section || circles.length === 0 || !text) return;
 
-  // تابع فعال‌سازی انیمیشن
-  const activateCircles = () => {
+  // فعال‌سازی انیمیشن‌ها
+  const activateElements = () => {
+    text.classList.add("active");
+
     circles.forEach((circle, index) => {
       setTimeout(() => {
         circle.classList.add("active");
-      }, index * 250); // تاخیر تدریجی
+      }, index * 250);
     });
   };
 
-  // تابع برگشت به حالت اولیه
-  const resetCircles = () => {
-    circles.forEach((circle) => {
-      circle.classList.remove("active");
-    });
+  // بازگشت به حالت اولیه
+  const resetElements = () => {
+    text.classList.remove("active");
+    circles.forEach((circle) => circle.classList.remove("active"));
   };
 
-  // استفاده از IntersectionObserver برای تشخیص ورود/خروج سکشن از دید کاربر
+  // مشاهده ورود/خروج سکشن
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          activateCircles();
-        } else {
-          resetCircles();
-        }
+        if (entry.isIntersecting) activateElements();
+        else resetElements();
       });
     },
-    { threshold: 0.4 } // وقتی حدود 40٪ سکشن دیده شد فعال بشه
+    { threshold: 0.4 }
   );
 
   observer.observe(section);
