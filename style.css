@@ -39,15 +39,14 @@ main {
   background-color: var(--primary-white-color);
 }
 
-p , h1 , h2, h3, h4, h5 {
-color : #000
+* {
+  color: #000;
 }
 
-main h2{
-  font-size:clamp(20px, 4vw, 54px);
+main h2 {
   font-weight: 700;
-  margin-bottom: 2.5rem;
-   text-align: center;
+  margin: 2.5rem 0 1.5rem;
+  text-align: center;
 }
 main h2 span {
   color: var(--primary-color);
@@ -102,19 +101,21 @@ section.hero-section {
   max-width: 55%;
 }
 .hero-content h1 {
-  font-size: clamp(18px, 5vw, 70px);
+  /* font-size: clamp(18px, 5vw, 70px); */
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: var(--primary-white-color);
 }
 .hero-content h3 {
-  font-size: clamp(7px, 2.5vw, 40px);
+  /* font-size: clamp(7px, 2.5vw, 40px); */
   font-weight: 400;
   line-height: 1.2;
   margin-bottom: 2rem;
+  color: var(--primary-white-color);
 }
 .hero-content a p {
-  font-size: clamp(7px, 2vw, 40px);
+  /* font-size: clamp(7px, 2vw, 40px); */
   font-weight: 700;
   line-height: 1.2;
   margin: auto;
@@ -197,7 +198,7 @@ section.hero-section {
 
 .health-text h3 {
   color: #c83067;
-  font-size: clamp(12px, 4vw, 50px);
+  /* font-size: clamp(11px, 3vw, 45px); */
   margin-bottom: 2rem;
   text-align: right;
   font-weight: 700;
@@ -206,10 +207,11 @@ section.hero-section {
 .health-text p {
   color: #444;
   line-height: 1.8;
-  font-size: clamp(12px, 3vw, 38px);
+  /* font-size: clamp(8px, 2vw, 31px); */
   text-align: right;
   font-weight: 700;
   line-height: 1.5;
+  word-spacing: 0.4rem;
 }
 
 .circle-wrapper {
@@ -240,13 +242,13 @@ section.hero-section {
 
 .health-circle .percent {
   font-weight: 700;
-  font-size: clamp(16px, 2vw, 50px);
+  /* font-size: clamp(16px, 2vw, 50px); */
   margin-bottom: 6px;
   direction: rtl;
 }
 
 .health-circle p {
-  font-size: clamp(6px, 1.2vw, 20px);
+  /* font-size: clamp(6px, 1.2vw, 20px); */
   line-height: 1.4;
   margin: 0;
   direction: rtl;
@@ -304,19 +306,9 @@ section.hero-section {
 /* Features section */
 
 .app-features {
-  padding: 3rem;
+  padding: 2rem;
   direction: rtl;
   margin: 0 auto;
-}
-
-
-
-/* گرید اصلی */
-.features-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
 }
 
 .feature-card {
@@ -326,6 +318,9 @@ section.hero-section {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
   transition: transform 0.2s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .feature-card:hover {
@@ -335,16 +330,18 @@ section.hero-section {
 /* عنوان */
 .feature-title {
   position: relative;
-  font-size:clamp(16px, 4vw, 49px);
+  /* font-size: clamp(16px, 2.8vw, 43px); */
   font-weight: 700;
   margin: 2rem 0 0.5rem;
   z-index: 1;
+  word-spacing: 0.3rem;
 }
 
 /* متن */
 .feature-text {
-  font-size: clamp(12px, 2.5vw, 35px);
+  /* font-size: clamp(12px, 2vw, 31px); */
   line-height: 1.7;
+  word-spacing: 0.3rem;
 }
 
 /* آیکون ساختگی – بعداً تصویر می‌ذاری */
@@ -409,40 +406,39 @@ section.hero-section {
   grid-row: 1 / 3;
   background: #ffe0ec;
 }
-.card-chat .feature-icon{
-  display:flex;
-  flex-direction : column
+.card-chat .feature-icon {
+  display: flex;
+  flex-direction: column;
 }
 
-.first-chat{
-  width:100%
+.first-chat {
+  width: 100%;
 }
-.first-chat object{
-  width :90%;
-  margin:auto;
+.first-chat object {
+  width: 90%;
+  margin: auto;
 }
-.right-chat{
+.right-chat {
   align-self: start;
   width: 70%;
-  margin-top:0.5rem;
- }
- 
-.right-chat object{
+  margin-top: 0.5rem;
+}
+
+.right-chat object {
   width: 100%;
 }
 .right-chat:last-child object {
-  width: 70%;
+  width: 100%;
 }
 
-.left-chat{
-
+.left-chat {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
 
-.left-chat object{
-  width: 40%;
+.left-chat object {
+  width: 60%;
 }
 
 .card-supplements {
@@ -455,7 +451,7 @@ section.hero-section {
   filter: drop-shadow(0 21px 14px #ffd278);
 }
 .card-supplements .icon-shadow {
-  background: #ffd278bb
+  background: #ffd278bb;
   box-shadow: -55px 20px 71px 101px #ffd278;
   width: 43%;
   right: 3%;
@@ -471,8 +467,7 @@ section.hero-section {
 }
 .card-fitness .feature-sub-icon {
   position: static;
-  /* bottom: -8%; */
-  /* right: -8%; */
+
   background: transparent;
   border-radius: 0;
   box-shadow: 0 0 0 0;
@@ -490,18 +485,17 @@ section.hero-section {
   z-index: 1;
 }
 .card-fitness .icon-shadow {
-    background: #a9eab8bb;
-    box-shadow: 2px 17px 50px 48px #a9eab8;
-    width: 59%;
-    right: 24%;
-    /* top: 0%; */
-    /* bottom: 50%; */
-    height: 60%;
-    border-radius: 50%;
+  background: #a9eab8bb;
+  box-shadow: 2px 17px 50px 48px #a9eab8;
+  width: 59%;
+  right: 24%;
+
+  height: 60%;
+  border-radius: 50%;
 }
- 
-.card-fitness .icon-wrapper  {
-    max-width: 500px;
+
+.card-fitness .icon-wrapper {
+  max-width: 500px;
 }
 .card-fitness .icon-wrapper object.main-icon {
   filter: drop-shadow(0 8px 15px #a9eab8);
@@ -517,25 +511,25 @@ section.hero-section {
   box-shadow: 0 3px 67px 66px #a5d7ec;
 }
 .bio #name {
-      font-size: clamp(12px, 3vw, 35px);
-      font-weight:bold;
-      border-bottom:2px solid;
-      margin-bottom:1rem;
-      padding-bottom:1rem;
-      width:fit-content;
-    }
+  /* font-size: clamp(12px, 3vw, 35px); */
+  /* font-weight: bold; */
+  border-bottom: 2px solid;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  width: fit-content;
+}
 
 #soheil .bio #name {
-  border-color:#CA00FF;
+  border-color: #ca00ff;
 }
 #elham .bio #name {
-  border-color:#00B7FF;
+  border-color: #00b7ff;
 }
 #nadia .bio #name {
-  border-color:#008C25;
+  border-color: #008c25;
 }
 
-#elham .circle-bg::after { 
+#elham .circle-bg::after {
   content: "";
   position: absolute;
   top: -11%;
@@ -543,11 +537,11 @@ section.hero-section {
   width: 100%;
   height: auto;
   border-radius: 50%;
-  background-color: #C8EFFF;
+  background-color: #c8efff;
   z-index: 0;
   aspect-ratio: 1 / 1;
 }
-#soheil .circle-bg::after { 
+#soheil .circle-bg::after {
   content: "";
   position: absolute;
   top: -11%;
@@ -555,11 +549,11 @@ section.hero-section {
   width: 100%;
   height: auto;
   border-radius: 50%;
-  background-color: #EFD8F5;
+  background-color: #efd8f5;
   z-index: 0;
   aspect-ratio: 1 / 1;
 }
-#nadia .circle-bg::after { 
+#nadia .circle-bg::after {
   content: "";
   position: absolute;
   top: -11%;
@@ -567,13 +561,39 @@ section.hero-section {
   width: 100%;
   height: auto;
   border-radius: 50%;
-  background-color: #D4FADE;
+  background-color: #d4fade;
   z-index: 0;
   aspect-ratio: 1 / 1;
 }
 
 .bio #text {
-  font-size: clamp(12px, 2vw, 36px);
+  /* font-size: clamp(12px, 2vw, 36px); */
+}
+
+.download-section {
+  background: linear-gradient(180deg, #ffebf1 0%, #ffffff 100%);
+}
+
+#links-wrapper p {
+  color: #424750;
+  /* font-size: clamp(8px, 1.5vw, 17px); */
+}
+#links-wrapper span {
+  /* font-size: clamp(12px, 2vw, 20px); */
+  font-weight: 700;
+}
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 24px;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.faq-body.open {
+  opacity: 1;
+  max-height: 500px; /* فقط سقفه */
+  padding-bottom: 16px;
 }
 
 @keyframes pulse {
@@ -607,13 +627,12 @@ section.hero-section {
 }
 
 @media (max-width: 1080px) {
-  .features-grid {
-    grid-template-columns: 1fr; /* فقط یک ستون */
-    grid-template-rows: auto;   /* ارتفاع خودکار */
+  /* .features-grid {
+    grid-template-columns: 1fr;  
+    grid-template-rows: auto;  
   }
 
-  /* همه باکس‌ها پشت سر هم قرار می‌گیرن */
-  .card-nutrition,
+   .card-nutrition,
   .card-chat,
   .card-supplements,
   .card-fitness,
@@ -623,13 +642,13 @@ section.hero-section {
   }
   .first-chat {
     width: 50%;
-}
+  }
   .right-chat {
     width: 47%;
-}
+  }
   .left-chat object {
     width: 30%;
-}
+  } */
 }
 @media (max-width: 768px) {
   section.hero-section {
@@ -649,12 +668,9 @@ section.hero-section {
     min-width: 43%;
   }
   .health-text h3 {
-    font-size: clamp(12px, 2.2vw, 28px);
     margin-bottom: 0.6rem;
   }
-  .health-text p {
-    font-size: clamp(12px, 1.3vw, 18px);
-  }
+
   .circle-wrapper {
     min-width: auto !important;
   }
@@ -677,13 +693,13 @@ section.hero-section {
   }
   .first-chat {
     width: 100%;
-}
+  }
   .right-chat {
     width: 70%;
-}
+  }
   .left-chat object {
     width: 40%;
-}
+  }
 }
 
 @media (max-width: 576px) {
@@ -693,10 +709,18 @@ section.hero-section {
   .hero-content h3 {
     margin-bottom: 8px;
   }
-  .bio #name{
+  .bio #name {
     margin-bottom: 0.2rem;
     padding-bottom: 0.2rem;
-
+  }
+  .app-features {
+    padding: 1rem;
+  }
+  .features-grid {
+    gap: 1rem;
+  }
+  .health-text p {
+    word-spacing: 0.1rem;
   }
 }
 @media (max-width: 480px) {
@@ -739,8 +763,5 @@ section.hero-section {
 
   .health-text {
     min-width: auto;
-  }
-  .health-text p {
-    font-size: clamp(7px, 1.3vw, 18px);
   }
 }

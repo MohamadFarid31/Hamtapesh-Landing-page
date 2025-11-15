@@ -37,19 +37,6 @@
       content="https://hamtapesh.com/assets/twitter-image.jpg"
     />
 
-    <!-- Security Headers -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: https:; font-src 'self' data:;"
-    />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
-    <meta
-      http-equiv="Referrer-Policy"
-      content="strict-origin-when-cross-origin"
-    />
-    <meta name="format-detection" content="telephone=no" />
-
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#C2185B" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -85,7 +72,28 @@
             sans: ["Vazir", "sans-serif"],
             vazir: ["Vazir", "sans-serif"],
           },
+          extend: {
+            colors: {
+              pink: {
+                200: "#FEEFF4",
+                300: "#F77CA3",
+                500: "#c83067",
+              },
+              customBlue: {
+                500: "#3b82f6",
+              },
+            },
+
+            fontSize: {
+              xs: "clamp(8px, 1.4vw, 18px)",
+              sm: "clamp(10px, 2vw, 26px)",
+              md: "clamp(12px, 2.2vw, 32px)",
+              lg: "clamp(14px, 3vw, 45px)",
+              xl: "clamp(18px, 4vw, 60px)",
+            },
+          },
         },
+        plugins: [],
       };
     </script>
 
@@ -112,114 +120,19 @@
     </script>
   </head>
   <body class="bg-gray-50 text-gray-800">
-    <!-- Header / Navigation -->
     <header
       class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300"
-    >
-      <!-- <nav class="container mx-auto px-4 py-4">
-        <div class="flex items-center justify-between">
-           <div class="flex items-center">
-            <a href="#" class="flex items-center space-x-2 space-x-reverse">
-              <div
-                class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center"
-              >
-                <span class="text-white text-xl font-bold">ه</span>
-              </div>
-              <span class="text-xl font-bold text-gray-800">هم‌تپش</span>
-            </a>
-          </div>
+    ></header>
 
-           <div class="hidden md:flex items-center space-x-8 space-x-reverse">
-            <a
-              href="#features"
-              class="text-gray-600 hover:text-primary-600 transition"
-              >ویژگی‌ها</a
-            >
-            <a
-              href="#how-it-works"
-              class="text-gray-600 hover:text-primary-600 transition"
-              >نحوه استفاده</a
-            >
-            <a
-              href="#download"
-              class="text-gray-600 hover:text-primary-600 transition"
-              >دانلود</a
-            >
-            <a
-              href="#faq"
-              class="text-gray-600 hover:text-primary-600 transition"
-              >سوالات متداول</a
-            >
-            <a
-              href="#contact"
-              class="bg-primary-600 text-white px-6 py-2 rounded-full hover:bg-primary-700 transition btn-primary"
-            >
-              تماس با ما
-            </a>
-          </div>
-
-          <button
-            id="mobile-menu-btn"
-            class="md:hidden text-gray-600 focus:outline-none"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-          <div class="flex flex-col space-y-4">
-            <a
-              href="#features"
-              class="text-gray-600 hover:text-primary-600 transition"
-              >ویژگی‌ها</a
-            >
-            <a
-              href="#how-it-works"
-              class="text-gray-600 hover:text-primary-600 transition"
-              >نحوه استفاده</a
-            >
-            <a
-              href="#download"
-              class="text-gray-600 hover:text-primary-600 transition"
-              >دانلود</a
-            >
-            <a
-              href="#faq"
-              class="text-gray-600 hover:text-primary-600 transition"
-              >سوالات متداول</a
-            >
-            <a
-              href="#contact"
-              class="bg-primary-600 text-white px-6 py-2 rounded-full hover:bg-primary-700 transition text-center"
-            >
-              تماس با ما
-            </a>
-          </div>
-        </div>
-      </nav> -->
-    </header>
-
-    <!-- Main Content -->
     <main>
-      <!-- Hero Section -->
       <section class="hero-section relative overflow-hidden">
         <div id="pink-bg">
           <div class="hero-content">
-            <h1>هر روز بارداری مهمه!</h1>
-            <h3>هم‌تپش همراه روزانه تو، برای یک بارداری سالم...</h3>
-            <a href="#"><p>دانلود هم‌تپش</p> </a>
+            <h1 class="text-xl">هر روز بارداری مهمه!</h1>
+            <h3 class="text-lg">
+              هم‌تپش همراه روزانه تو، برای یک بارداری سالم...
+            </h3>
+            <a class="text-md" href="#"><p>دانلود هم‌تپش</p> </a>
           </div>
           <div
             class="hero-img-container z-10"
@@ -240,11 +153,10 @@
         </div>
       </section>
 
-      <!-- Health section -->
       <section class="health-section cards-container">
         <div class="health-text">
-          <h3>سلامت مادر، رشد سالم جنین</h3>
-          <p>
+          <h3 class="text-lg">سلامت مادر، رشد سالم جنین</h3>
+          <p class="text-md">
             هم‌تپش در راستای ارتقاء سلامت بارداری و ایفای مسئولیت اجتماعی،
             اپلیکیشن خود را به صورت رایگان در اختیار جامعه مادران باردار قرار
             داده است.
@@ -253,24 +165,28 @@
 
         <div class="circle-wrapper">
           <div class="health-circle pink">
-            <span class="percent">٪۴۵</span>
-            <p>کاهش خطر دیابت با ورزش‌های ایمن دوران بارداری</p>
+            <span class="percent text-md">٪۴۵</span>
+            <p class="text-xs">کاهش خطر دیابت با ورزش‌های ایمن دوران بارداری</p>
           </div>
-          <div class="health-circle blue">
-            <span class="percent">٪۷۰</span>
-            <p>کاهش احتمال نقص عصبی جنین با مصرف کافی فولیک اسید</p>
+          <div class="health-circle text-md blue">
+            <span class="percent text-md">٪۷۰</span>
+            <p class="text-xs">
+              کاهش احتمال نقص عصبی جنین با مصرف کافی فولیک اسید
+            </p>
           </div>
-          <div class="health-circle green">
-            <span class="percent">٪۳۲</span>
-            <p>کاهش نوسان وزن و فشار خون سالم‌تر در بارداری</p>
+          <div class="health-circle text-md green">
+            <span class="percent text-md">٪۳۲</span>
+            <p class="text-xs">کاهش نوسان وزن و فشار خون سالم‌تر در بارداری</p>
           </div>
         </div>
       </section>
-      <!-- Features section -->
-      <section class="app-features">
-        <h2><span>هم‌تپش</span> چطور هر روز همراهته؟</h2>
 
-        <div class="features-grid">
+      <section class="app-features">
+        <h2 class="text-lg"><span>هم‌تپش</span> چطور هر روز همراهته؟</h2>
+
+        <div
+          class="w-100 md:max-w-[60%] m-auto grid gap-6 grid-cols-3 grid-rows-3"
+        >
           <div class="feature-card card-nutrition">
             <div class="feature-icon">
               <div class="icon-wrapper">
@@ -290,8 +206,12 @@
                 </div>
               </div>
             </div>
-            <h3 class="feature-title">تغذیه</h3>
-            <p class="feature-text">محاسبه مواد مغذی روزانه دریافت شده</p>
+            <div>
+              <h3 class="feature-title text-md">تغذیه</h3>
+              <p class="feature-text text-sm">
+                محاسبه مواد مغذی روزانه دریافت شده
+              </p>
+            </div>
           </div>
 
           <div class="feature-card card-chat">
@@ -325,10 +245,12 @@
                 ></object>
               </div>
             </div>
-            <h3 class="feature-title">تپش‌یار</h3>
-            <p class="feature-text">
-              به اشتراک‌گذاری سوالات و استفاده از تجربه مادران باردار دیگر
-            </p>
+            <div>
+              <h3 class="feature-title text-md">تپش‌یار</h3>
+              <p class="feature-text text-sm">
+                به اشتراک‌گذاری سوالات و استفاده از تجربه مادران باردار دیگر
+              </p>
+            </div>
           </div>
 
           <div class="feature-card card-supplements">
@@ -342,8 +264,12 @@
                 ></object>
               </div>
             </div>
-            <h3 class="feature-title">مکمل‌های بارداری</h3>
-            <p class="feature-text">یادآوری روزانه مصرف مکمل‌های بارداری</p>
+            <div>
+              <h3 class="feature-title text-md">مکمل‌های بارداری</h3>
+              <p class="feature-text text-sm">
+                یادآوری روزانه مصرف مکمل‌های بارداری
+              </p>
+            </div>
           </div>
 
           <div class="feature-card card-fitness">
@@ -365,10 +291,12 @@
                 </div>
               </div>
             </div>
-            <h3 class="feature-title">ورزش</h3>
-            <p class="feature-text">
-              ورزش روزانه بارداری متناسب با BMI و هفته بارداری بصورت اختصاصی
-            </p>
+            <div>
+              <h3 class="feature-title text-md">ورزش</h3>
+              <p class="feature-text text-sm">
+                ورزش روزانه بارداری متناسب با BMI و هفته بارداری بصورت اختصاصی
+              </p>
+            </div>
           </div>
 
           <div class="feature-card card-weight">
@@ -390,16 +318,18 @@
                 </div>
               </div>
             </div>
-            <h3 class="feature-title">وزن</h3>
-            <p class="feature-text">
-              کنترل هفته به هفته وزن‌گیری در دوران بارداری
-            </p>
+            <div>
+              <h3 class="feature-title text-md">وزن</h3>
+              <p class="feature-text text-sm">
+                کنترل هفته به هفته وزن‌گیری در دوران بارداری
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <!-- About-Us section -->
+
       <section class="w-[90%] m-auto">
-        <h2>
+        <h2 class="text-lg">
           درباره
           <span>هم‌تپش</span>
         </h2>
@@ -410,14 +340,16 @@
                 <img
                   src="assets/soheil.svg"
                   alt="سهیل"
-                  class="w-[17vw] max-w-[200px] relative z-10"
+                  class="w-[20vw] md:w-[17vw] max-w-[200px] relative z-10"
                 />
               </div>
               <div
                 class="bio w-[70%] md:w-[60%] mr-2 md:[mr-4] flex flex-col justify-center"
               >
-                <p id="name">سهیل اشکیانی - متخصص داخلی</p>
-                <p id="text">
+                <p id="name" class="font-bold text-md">
+                  سهیل اشکیانی - متخصص داخلی
+                </p>
+                <p id="text" class="text-md">
                   در هم‌تپش بخش مکمل‌های بارداری را ایجاد کردیم تا بتونید....
                 </p>
               </div>
@@ -430,14 +362,16 @@
                 <img
                   src="assets/elham.svg"
                   alt="الهام"
-                  class="w-[17vw] max-w-[200px] relative z-10"
+                  class="w-[20vw] md:w-[17vw] max-w-[200px] relative z-10"
                 />
               </div>
               <div
                 class="bio w-[70%] md:w-[60%] ml-2 md:ml-9 flex flex-col justify-center text-left"
               >
-                <p id="name" class="self-end">الهام زادمجید - متخصص تغذیه</p>
-                <p id="text">
+                <p id="name" class="font-bold text-md" class="self-end">
+                  الهام زادمجید - متخصص تغذیه
+                </p>
+                <p id="text" class="text-md">
                   در هم‌تپش بخش مکمل‌های بارداری را ایجاد کردیم تا بتونید....
                 </p>
               </div>
@@ -450,14 +384,16 @@
                 <img
                   src="assets/nadia.svg"
                   alt="نادیا"
-                  class="w-[17vw] max-w-[200px] relative z-10"
+                  class="w-[20vw] md:w-[17vw] max-w-[200px] relative z-10"
                 />
               </div>
               <div
                 class="bio w-[70%] md:w-[60%] mr-2 md:[mr-4] flex flex-col justify-center"
               >
-                <p id="name">نادیا مرادی - متخصص ورزش‌های بارداری</p>
-                <p id="text">
+                <p id="name" class="font-bold text-md">
+                  نادیا مرادی - متخصص ورزش‌های بارداری
+                </p>
+                <p id="text" class="text-md">
                   در هم‌تپش بخش مکمل‌های بارداری را ایجاد کردیم تا بتونید....
                 </p>
               </div>
@@ -465,35 +401,169 @@
           </div>
         </div>
       </section>
-      <!-- Download section -->
-      <section class="download-section w-[90%] mx-auto my-10">
-        <h2><span>هم‌تپش</span> چطور هر روز همراهته؟</h2>
-      </section>
 
-      <section id="faq" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              سوالات متداول
-            </h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-              پاسخ سوالات رایج درباره هم‌تپش
-            </p>
+      <section class="download-section my-16 py-4 text-center">
+        <h2 class="leading-relaxed text-lg">
+          دانلود اپلیکیشن <span class="text-pink-500">هم‌تپش</span>
+        </h2>
+
+        <div
+          class="os-selector flex w-[90%] md:w-[50%] mx-auto bg-white p-2 gap-2 rounded-full overflow-hidden shadow-sm mb-5"
+        >
+          <button
+            id="btn-android"
+            class="w-1/2 text-md py-1 md:py-3 flex items-center justify-center gap-2 rounded-full bg-pink-300 text-base font-medium transition-all duration-300 text-white"
+          >
+            <svg
+              class="w-5 h-5 text-white"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M17.6 9.47997L19.44 6.29997C19.6 5.98997 19.48 5.60997 19.18 5.44997C18.89 5.29997 18.53 5.38997 18.35 5.66997L16.47 8.90997C13.61 7.69997 10.39 7.69997 7.53 8.90997L5.65 5.66997C5.46 5.37997 5.07 5.28997 4.78 5.46997C4.5 5.64997 4.41 6.00997 4.56 6.29997L6.4 9.47997C3.3 11.25 1.28 14.44 1 18H23C22.72 14.44 20.7 11.25 17.6 9.47997ZM7 15.25C6.31 15.25 5.75 14.69 5.75 14C5.75 13.31 6.31 12.75 7 12.75C7.69 12.75 8.25 13.31 8.25 14C8.25 14.69 7.69 15.25 7 15.25ZM17 15.25C16.31 15.25 15.75 14.69 15.75 14C15.75 13.31 16.31 12.75 17 12.75C17.69 12.75 18.25 13.31 18.25 14C18.25 14.69 17.69 15.25 17 15.25Z"
+              />
+            </svg>
+            اندروید
+          </button>
+          <button
+            id="btn-ios"
+            class="w-1/2 text-md py-1 md:py-3 flex items-center justify-center gap-2 border border-gray-200 rounded-full text-gray-600 text-base font-medium transition-all duration-300"
+          >
+            <svg
+              class="w-5 h-5 text-gray-600"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.1239 2C16.2524 3.17207 15.7813 4.34695 15.0833 5.19379C14.3845 6.03871 13.2388 6.69667 12.1164 6.6091C11.9645 5.46047 12.5311 4.26418 13.1784 3.51465C13.8998 2.66973 15.1185 2.04094 16.1239 2ZM19.7466 8.82759C19.5418 8.95442 17.5771 10.1711 17.6016 12.6268C17.6273 15.5869 20.1429 16.6142 20.2798 16.6701C20.2828 16.6713 20.2853 16.6724 20.2853 16.6724C20.2841 16.676 20.2819 16.6832 20.2786 16.6936C20.2191 16.8844 19.8146 18.1803 18.9001 19.5166C18.0659 20.7353 17.2025 21.9483 15.8397 21.9736C15.1848 21.9859 14.7471 21.7965 14.2921 21.5996C13.816 21.3935 13.3209 21.1792 12.538 21.1792C11.7174 21.1792 11.199 21.4001 10.6996 21.6129C10.2673 21.7971 9.84918 21.9753 9.26149 21.9987C7.94637 22.0475 6.94473 20.6829 6.10474 19.4679C4.38567 16.9857 3.07361 12.4517 4.83735 9.3912C5.71145 7.87085 7.27673 6.90902 8.9743 6.88378C9.70655 6.87048 10.4157 7.1519 11.0362 7.39817C11.5103 7.58632 11.9327 7.75394 12.2741 7.75394C12.5813 7.75394 12.9927 7.5917 13.4724 7.40254C14.2273 7.10487 15.1513 6.74057 16.1036 6.83699C16.7557 6.86421 18.5858 7.09972 19.7606 8.81886C19.7577 8.8207 19.753 8.82361 19.7466 8.82759Z"
+              />
+            </svg>
+            ios
+          </button>
+        </div>
+
+        <div
+          class="w-[90%] md:w-[50%] mx-auto grid grid-cols-2 gap-8 items-center justify-between"
+        >
+          <div id="links-wrapper" class="flex flex-col gap-3 text-right">
+            <div id="android-links" class="flex flex-col gap-3">
+              <a
+                href="#"
+                class="flex justify-between items-center border border-gray-200 rounded-xl py-1 px-2 md:px-4 md:py-3 bg-white hover:shadow-md transition"
+              >
+                <div class="flex flex-col">
+                  <p class="text-xs">دانلود از</p>
+                  <span class="text-xs">مایکت</span>
+                </div>
+                <img src="assets/myket.svg" alt="مایکت" class="w-6 h-6" />
+              </a>
+              <a
+                href="#"
+                class="flex justify-between items-center border border-gray-200 rounded-xl py-1 px-2 md:px-4 md:py-3 bg-white hover:shadow-md transition"
+              >
+                <div class="flex flex-col">
+                  <p class="text-xs">دانلود از</p>
+                  <span class="text-xs">کافه بازار</span>
+                </div>
+                <img
+                  src="assets/Cafebazaar.svg"
+                  alt="کافه بازار"
+                  class="w-6 h-6"
+                />
+              </a>
+              <a
+                href="#"
+                class="flex justify-between items-center border border-gray-200 rounded-xl py-1 px-2 md:px-4 md:py-3 bg-white hover:shadow-md transition"
+              >
+                <div class="flex flex-col">
+                  <p class="text-xs">دانلود از</p>
+                  <span class="text-xs">گوگل پلی</span>
+                </div>
+                <img
+                  src="assets/playStore.svg"
+                  alt="گوگل پلی"
+                  class="w-6 h-6"
+                />
+              </a>
+              <a
+                href="#"
+                class="flex justify-between items-center border border-gray-200 rounded-xl py-1 px-2 md:px-4 md:py-3 bg-white hover:shadow-md transition"
+              >
+                <div class="flex flex-col">
+                  <p class="text-xs">دانلود از</p>
+                  <span class="text-xs">لینک مستقیم</span>
+                </div>
+                <img
+                  src="assets/Data-Transfer.svg"
+                  alt="لینک مستقیم"
+                  class="w-6 h-6"
+                />
+              </a>
+            </div>
+
+            <div id="ios-links" class="hidden flex flex-col gap-3">
+              <a
+                href="#"
+                class="flex justify-between items-center border border-gray-200 rounded-xl py-1 px-2 md:px-4 md:py-3 bg-white hover:shadow-md transition"
+              >
+                <div class="flex flex-col">
+                  <p class="text-xs">دانلود از</p>
+                  <span class="text-xs">سیب اپ</span>
+                </div>
+                <img src="assets/sibApp.svg" alt="سیب اپ" class="w-6 h-6" />
+              </a>
+              <a
+                href="#"
+                class="flex justify-between items-center border border-gray-200 rounded-xl py-1 px-2 md:px-4 md:py-3 bg-white hover:shadow-md transition"
+              >
+                <div class="flex flex-col">
+                  <p class="text-xs">دانلود از</p>
+                  <span class="text-xs">اناردونی</span>
+                </div>
+                <img src="assets/anardoni.svg" alt="اناردونی" class="w-6 h-6" />
+              </a>
+              <a
+                href="#"
+                class="flex justify-between items-center border border-gray-200 rounded-xl py-1 px-2 md:px-4 md:py-3 bg-white hover:shadow-md transition"
+              >
+                <div class="flex flex-col">
+                  <p class="text-xs">نسخه</p>
+                  <span class="text-xs">وب اپلیکیشن</span>
+                </div>
+                <img src="assets/pwa.svg" alt="وب اپلیکیشن" class="w-6 h-6" />
+              </a>
+            </div>
           </div>
 
-          <div class="max-w-3xl mx-auto space-y-4">
-            <!-- FAQ Item 1 -->
-            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
-              <input type="checkbox" id="faq1" class="hidden peer" />
-              <label
-                for="faq1"
-                class="flex items-center justify-between p-6 cursor-pointer"
+          <div id="image-wrapper" class="flex justify-center">
+            <img
+              id="phone-image"
+              src="assets/android-phone.svg"
+              alt="Android App"
+              class="w-[80%] md:w-[60%] transition-all duration-300"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-lg">سوالی برات پیش اومده؟</h2>
+          </div>
+
+          <div class="max-w-3xl mx-auto space-y-4" id="faq-list">
+            <div class="faq-item border border-gray-200 rounded-2xl">
+              <button
+                class="faq-header flex items-center justify-between w-full p-6"
               >
-                <h3 class="text-lg font-semibold text-gray-900">
-                  آیا اطلاعات من محفوظ است؟
+                <h3 class="text-sm font-semibold">
+                  استفاده از اپلیکیشن هم‌تپش رایگان است؟
                 </h3>
                 <svg
-                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
+                  class="faq-icon w-6 h-6 text-pink-500 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -505,26 +575,21 @@
                     d="M19 9l-7 7-7-7"
                   ></path>
                 </svg>
-              </label>
-              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
-                بله، تمامی اطلاعات شما با استفاده از بالاترین استانداردهای
-                امنیتی رمزگذاری و محفوظ نگهداری می‌شود. ما به حریم خصوصی شما
-                احترام می‌گذاریم.
-              </div>
+              </button>
+              <p class="text-sm md:text-xs faq-body px-6 leading-relaxed">
+                بله، تمامی اطلاعات شما با امنیت کامل محفوظ است.
+              </p>
             </div>
 
-            <!-- FAQ Item 2 -->
-            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
-              <input type="checkbox" id="faq2" class="hidden peer" />
-              <label
-                for="faq2"
-                class="flex items-center justify-between p-6 cursor-pointer"
+            <div class="faq-item border border-gray-200 rounded-2xl">
+              <button
+                class="faq-header flex items-center justify-between w-full p-6"
               >
-                <h3 class="text-lg font-semibold text-gray-900">
-                  هزینه مشاوره چقدر است؟
+                <h3 class="text-sm font-semibold">
+                  تغذیه چطور به بچم کمک میکنه؟
                 </h3>
                 <svg
-                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
+                  class="faq-icon w-6 h-6 text-pink-500 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -536,26 +601,18 @@
                     d="M19 9l-7 7-7-7"
                   ></path>
                 </svg>
-              </label>
-              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
-                هزینه مشاوره بستگی به نوع خدمات (تلفنی، ویدیویی، چت) و روانشناس
-                انتخابی شما دارد. قیمت‌ها در پروفایل هر روانشناس قابل مشاهده
-                است.
-              </div>
+              </button>
+              <p class="text-sm md:text-xs faq-body px-6 leading-relaxed">
+                بله، تمامی اطلاعات شما با امنیت کامل محفوظ است.
+              </p>
             </div>
-
-            <!-- FAQ Item 3 -->
-            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
-              <input type="checkbox" id="faq3" class="hidden peer" />
-              <label
-                for="faq3"
-                class="flex items-center justify-between p-6 cursor-pointer"
+            <div class="faq-item border border-gray-200 rounded-2xl">
+              <button
+                class="faq-header flex items-center justify-between w-full p-6"
               >
-                <h3 class="text-lg font-semibold text-gray-900">
-                  آیا می‌توانم روانشناس خود را تغییر دهم؟
-                </h3>
+                <h3 class="text-sm font-semibold">هم‌تپش چجوری کار می‌کنه؟</h3>
                 <svg
-                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
+                  class="faq-icon w-6 h-6 text-pink-500 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -567,25 +624,22 @@
                     d="M19 9l-7 7-7-7"
                   ></path>
                 </svg>
-              </label>
-              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
-                بله، شما می‌توانید در هر زمان روانشناس خود را تغییر دهید. هدف ما
-                راحتی و رضایت شماست.
-              </div>
+              </button>
+              <p class="text-sm md:text-xs faq-body px-6 leading-relaxed">
+                هم‌تپش هر روز بهت کمک می‌کنه تا مواد مغذی لازم رو دریافت کنی،
+                ورزش‌های امن بارداری انجام بدی، تجربه‌ی مادرهای دیگه رو کنار
+                خودت داشته باشی و مصرف مکمل‌هاتو فراموش نکنی.
+              </p>
             </div>
-
-            <!-- FAQ Item 4 -->
-            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
-              <input type="checkbox" id="faq4" class="hidden peer" />
-              <label
-                for="faq4"
-                class="flex items-center justify-between p-6 cursor-pointer"
+            <div class="faq-item border border-gray-200 rounded-2xl">
+              <button
+                class="faq-header flex items-center justify-between w-full p-6"
               >
-                <h3 class="text-lg font-semibold text-gray-900">
-                  چطور وقت مشاوره بگیرم؟
+                <h3 class="text-sm font-semibold">
+                  ورزش‌های روزانه نیاز به وسیله‌ای دارند؟
                 </h3>
                 <svg
-                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
+                  class="faq-icon w-6 h-6 text-pink-500 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -597,395 +651,160 @@
                     d="M19 9l-7 7-7-7"
                   ></path>
                 </svg>
-              </label>
-              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
-                پس از ورود به اپلیکیشن، روانشناس مورد نظر خود را انتخاب کنید و
-                از تقویم اوقات فراغت، زمان مناسب را رزرو نمایید.
-              </div>
-            </div>
-
-            <!-- FAQ Item 5 -->
-            <div class="faq-item bg-gray-50 rounded-2xl overflow-hidden">
-              <input type="checkbox" id="faq5" class="hidden peer" />
-              <label
-                for="faq5"
-                class="flex items-center justify-between p-6 cursor-pointer"
-              >
-                <h3 class="text-lg font-semibold text-gray-900">
-                  آیا مشاوره آنلاین موثر است؟
-                </h3>
-                <svg
-                  class="w-6 h-6 text-primary-600 transform transition-transform peer-checked:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
-                </svg>
-              </label>
-              <div class="faq-answer px-6 pb-6 text-gray-600 leading-relaxed">
-                بله، مطالعات نشان داده که مشاوره آنلاین به اندازه مشاوره حضوری
-                موثر است و در برخی موارد حتی راحت‌تر و کارآمدتر می‌باشد.
-              </div>
+              </button>
+              <p class="text-sm md:text-xs faq-body px-6 leading-relaxed">
+                بله، تمامی اطلاعات شما با امنیت کامل محفوظ است.
+              </p>
             </div>
           </div>
         </div>
       </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
-      <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-4 gap-12 mb-12">
-          <!-- About -->
-          <div>
-            <div class="flex items-center mb-6">
-              <div
-                class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center ml-3"
-              >
-                <span class="text-white text-xl font-bold">ه</span>
-              </div>
-              <span class="text-xl font-bold text-white">هم‌تپش</span>
-            </div>
-            <p class="text-gray-400 leading-relaxed mb-4">
-              پلتفرم مشاوره روانشناسی آنلاین برای دسترسی آسان به سلامت روان
-            </p>
-            <!-- Social Media -->
-            <div class="flex gap-3">
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121L7.773 13.82l-2.938-.918c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Quick Links -->
-          <div>
-            <h3 class="text-white font-bold text-lg mb-6">دسترسی سریع</h3>
-            <ul class="space-y-3">
-              <li>
-                <a href="#features" class="hover:text-primary-400 transition"
-                  >ویژگی‌ها</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#how-it-works"
-                  class="hover:text-primary-400 transition"
-                  >نحوه استفاده</a
-                >
-              </li>
-              <li>
-                <a href="#download" class="hover:text-primary-400 transition"
-                  >دانلود</a
-                >
-              </li>
-              <li>
-                <a href="#faq" class="hover:text-primary-400 transition"
-                  >سوالات متداول</a
-                >
-              </li>
-              <li>
-                <a href="#contact" class="hover:text-primary-400 transition"
-                  >تماس با ما</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Services -->
-          <div>
-            <h3 class="text-white font-bold text-lg mb-6">خدمات</h3>
-            <ul class="space-y-3">
-              <li>
-                <a href="#" class="hover:text-primary-400 transition"
-                  >مشاوره فردی</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-primary-400 transition"
-                  >مشاوره خانواده</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-primary-400 transition"
-                  >مشاوره کودک و نوجوان</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-primary-400 transition"
-                  >مشاوره ازدواج</a
-                >
-              </li>
-              <li>
-                <a href="#" class="hover:text-primary-400 transition"
-                  >مشاوره شغلی</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Newsletter -->
-          <div>
-            <h3 class="text-white font-bold text-lg mb-6">خبرنامه</h3>
-            <p class="text-gray-400 mb-4">
-              از آخرین اخبار و مطالب مفید باخبر شوید
-            </p>
-            <form class="space-y-3">
-              <input
-                type="email"
-                placeholder="ایمیل خود را وارد کنید"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition text-white placeholder-gray-500"
-              />
-              <button
-                type="submit"
-                class="w-full bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition"
-              >
-                عضویت
-              </button>
-            </form>
-          </div>
+    <footer class="bg-pink-200">
+      <div class="w-[90%] m-auto py-10">
+        <div class="flex items-center gap-6">
+          <object
+            type="image/svg+xml"
+            data="assets/footer-icon.svg"
+            class="footer-icon w-[20vw] max-w-[50px] md:max-w-[100px]"
+          ></object>
+          <h2 class="text-md text-pink-500 font-bold">هم‌تپش</h2>
         </div>
+        <p class="text-xs py-6">
+          هم‌تپش در راستای ارتقای سلامت بارداری و ایفای مسئولیت اجتماعی خود،
+          اپلیکیشن را به صورت رایگان در اختیار مادران باردار قرار داده است. ما
+          در هم‌تپش، برای قدردانی از تلاش روزانه‌ی مادران در مسیر یک بارداری
+          سالم، هدایای ویژه‌ای را در فروشگاه نی‌نی‌لیست برای شما در نظر
+          گرفته‌ایم.
+        </p>
 
-        <!-- Bottom Bar -->
-        <div class="border-t border-gray-800 pt-8">
-          <div
-            class="flex flex-col md:flex-row justify-between items-center gap-4"
-          >
-            <p class="text-gray-400 text-sm">
-              © ۱۴۰۳ هم‌تپش. تمامی حقوق محفوظ است.
-            </p>
-            <div class="flex gap-6 text-sm">
+        <div class="grid grid-cols-[0.5fr_0.5fr_1fr] gap-4">
+          <ul>
+            <li
+              class="text-xs transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-pink-500 my-4"
+            >
+              <a href="/"> دانلود اپلیکیشن </a>
+            </li>
+            <li
+              class="text-xs transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-pink-500 my-4"
+            >
+              <a href="/"> سوالات متداول </a>
+            </li>
+            <li
+              class="text-xs transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-pink-500 my-4"
+            >
+              <a href="/"> تماس با ما </a>
+            </li>
+          </ul>
+          <ul>
+            <li
+              class="text-xs transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-pink-500 my-4"
+            >
+              <a href="/"> فروشگاه نی‌نی لیست </a>
+            </li>
+            <li
+              class="text-xs transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-pink-500 my-4"
+            >
+              <a href="/"> بلاگ </a>
+            </li>
+          </ul>
+          <ul>
+            <li
+              class="text-xs transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-pink-500 my-4"
+            >
               <a
-                href="#"
-                class="text-gray-400 hover:text-primary-400 transition"
-                >قوانین و مقررات</a
+                href="/"
+                class="group flex items-start gap-2 text-gray-800 hover:text-pink-500 transition-colors duration-300"
               >
+                <!-- آیکون SVG آدرس -->
+                <svg
+                  class="w-5 h-5 stroke-gray-800 group-hover:stroke-pink-500 transition-colors duration-300 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58685 13.7231 7.19 12 7.19C10.2769 7.19 8.88 8.58685 8.88 10.31C8.88 12.0331 10.2769 13.43 12 13.43Z"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M3.62 8.49C5.59 -0.169999 18.42 -0.159999 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.39 20.54C5.63 17.88 2.47 13.57 3.62 8.49Z"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                تهران، بلوار تیموری، تقاطع شهید ابراهیمی، پلاک ۵۸، ساختمان
+                فناوری دانشگاه شریف، طبقه سوم
+              </a>
+            </li>
+
+            <li
+              class="text-xs transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-pink-500 my-4"
+            >
               <a
-                href="#"
-                class="text-gray-400 hover:text-primary-400 transition"
-                >حریم خصوصی</a
+                href="/"
+                class="group flex items-start gap-2 text-gray-800 hover:text-pink-500 transition-colors duration-300"
               >
+                <!-- آیکون SVG شماره پشتیبانی -->
+                <svg
+                  class="w-5 h-5 stroke-gray-800 group-hover:stroke-pink-500 transition-colors duration-300 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.97 18.33C21.97 18.69 21.89 19.06 21.72 19.42C21.55 19.78 21.33 20.12 21.04 20.44C20.55 20.98 20.01 21.37 19.4 21.62C18.8 21.87 18.15 22 17.45 22C16.43 22 15.34 21.76 14.19 21.27C13.04 20.78 11.89 20.12 10.75 19.29C9.6 18.45 8.51 17.52 7.47 16.49C6.44 15.45 5.51 14.36 4.68 13.22C3.86 12.08 3.2 10.94 2.72 9.81C2.24 8.67 2 7.58 2 6.54C2 5.86 2.12 5.21 2.36 4.61C2.6 4 2.98 3.44 3.51 2.94C4.15 2.31 4.85 2 5.59 2C5.87 2 6.15 2.06 6.4 2.18C6.66 2.3 6.89 2.48 7.07 2.74L9.39 6.01C9.57 6.26 9.7 6.49 9.79 6.71C9.88 6.92 9.93 7.13 9.93 7.32C9.93 7.56 9.86 7.8 9.72 8.03C9.59 8.26 9.4 8.5 9.16 8.74L8.4 9.53C8.29 9.64 8.24 9.77 8.24 9.93C8.24 10.01 8.25 10.08 8.27 10.16C8.3 10.24 8.33 10.3 8.35 10.36C8.53 10.69 8.84 11.12 9.28 11.64C9.73 12.16 10.21 12.69 10.73 13.22C11.27 13.75 11.79 14.24 12.32 14.69C12.84 15.13 13.27 15.43 13.61 15.61C13.66 15.63 13.72 15.66 13.79 15.69C13.87 15.72 13.95 15.73 14.04 15.73C14.21 15.73 14.34 15.67 14.45 15.56L15.21 14.81C15.46 14.56 15.7 14.37 15.93 14.25C16.16 14.11 16.39 14.04 16.64 14.04C16.83 14.04 17.03 14.08 17.25 14.17C17.47 14.26 17.7 14.39 17.95 14.56L21.26 16.91C21.52 17.09 21.7 17.3 21.81 17.55C21.91 17.8 21.97 18.05 21.97 18.33Z"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                  />
+                </svg>
+                شماره پشتیبانی: ۹۰۰۰۵۲۰۱
+              </a>
+            </li>
+
+            <li
+              class="text-xs transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-pink-500 my-4"
+            >
               <a
-                href="#"
-                class="text-gray-400 hover:text-primary-400 transition"
-                >شرایط استفاده</a
+                href="/"
+                target="_blank"
+                class="group flex items-start gap-2 text-gray-800 hover:text-pink-500 transition-colors duration-300"
               >
-            </div>
-          </div>
+                <!-- آیکون SVG اینستاگرام -->
+                <svg
+                  class="w-5 h-5 stroke-gray-800 group-hover:stroke-pink-500 transition-colors duration-300 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 15.5C13.933 15.5 15.5 13.933 15.5 12C15.5 10.067 13.933 8.5 12 8.5C10.067 8.5 8.5 10.067 8.5 12C8.5 13.933 10.067 15.5 12 15.5Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M17.6361 7H17.6477"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                اینستاگرام همتپش
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="text-center pt-12 text-xs">
+          کلیه حقوق مادی و معنوی این وبسایت برای فروشگاه اینترنتی نی نی لیست
+          محفوظ می باشد و هرگونه کپی برداری پیگرد قانونی دارد
         </div>
       </div>
     </footer>
-
-    <!-- Back to Top Button -->
-    <button
-      id="back-to-top"
-      class="fixed bottom-8 left-8 bg-primary-600 text-white w-12 h-12 rounded-full shadow-lg hidden hover:bg-primary-700 transition transform hover:scale-110 z-40"
-    >
-      <svg
-        class="w-6 h-6 mx-auto"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5 10l7-7m0 0l7 7m-7-7v18"
-        ></path>
-      </svg>
-    </button>
-
-    <!-- JavaScript -->
-    <script>
-      // Mobile Menu Toggle
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      // Close mobile menu when clicking on a link
-      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
-      mobileMenuLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-        });
-      });
-
-      // Sticky Header
-      let lastScroll = 0;
-      const header = document.querySelector("header");
-
-      window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll <= 0) {
-          header.classList.remove("shadow-lg");
-        } else {
-          header.classList.add("shadow-lg");
-        }
-
-        lastScroll = currentScroll;
-      });
-
-      // Back to Top Button
-      const backToTopBtn = document.getElementById("back-to-top");
-
-      window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
-          backToTopBtn.classList.remove("hidden");
-        } else {
-          backToTopBtn.classList.add("hidden");
-        }
-      });
-
-      backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-
-      // Smooth Scroll for Anchor Links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition =
-              elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth",
-            });
-          }
-        });
-      });
-
-      // Intersection Observer for Fade In Animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, observerOptions);
-
-      // Observe all feature cards and sections
-      document
-        .querySelectorAll(".feature-card, section > div")
-        .forEach((el) => {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(20px)";
-          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-          observer.observe(el);
-        });
-
-      // Form Validation
-      const contactForm = document.querySelector("form");
-      if (contactForm) {
-        contactForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          // Basic validation
-          const name = this.querySelector("#name").value.trim();
-          const email = this.querySelector("#email").value.trim();
-          const subject = this.querySelector("#subject").value.trim();
-          const message = this.querySelector("#message").value.trim();
-
-          if (!name || !email || !subject || !message) {
-            alert("لطفاً تمام فیلدها را پر کنید");
-            return;
-          }
-
-          // Email validation
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            alert("لطفاً یک ایمیل معتبر وارد کنید");
-            return;
-          }
-
-          // Success message (in production, send to server)
-          alert("پیام شما با موفقیت ارسال شد!");
-          this.reset();
-        });
-      }
-
-      // Newsletter Form
-      const newsletterForms = document.querySelectorAll("footer form");
-      newsletterForms.forEach((form) => {
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          const email = this.querySelector('input[type="email"]').value.trim();
-
-          if (!email) {
-            alert("لطفاً ایمیل خود را وارد کنید");
-            return;
-          }
-
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            alert("لطفاً یک ایمیل معتبر وارد کنید");
-            return;
-          }
-
-          alert("با موفقیت در خبرنامه عضو شدید!");
-          this.reset();
-        });
-      });
-    </script>
   </body>
 </html>
