@@ -70,7 +70,7 @@
 
 html {
   scroll-behavior: smooth;
-}
+} //
 
 body {
   overflow-x: hidden;
@@ -123,13 +123,6 @@ main h2 span {
 /* ================================
    Hero Section
    ================================ */
-section.hero-section {
-  height: 100vh;
-  min-height: 700px;
-  position: relative;
-  overflow: hidden;
-  background: var(--primary-white);
-}
 
 #pink-bg {
   position: relative;
@@ -143,49 +136,6 @@ section.hero-section {
   box-shadow: 4px 12px 32px 0 rgba(177, 94, 114, 0.7);
 }
 
-.hero-content {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-60%);
-  right: 5%;
-  color: var(--primary-white);
-  text-align: center;
-  max-width: 55%;
-}
-
-.hero-content h1 {
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  color: var(--primary-white);
-}
-
-.hero-content h3 {
-  font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 2rem;
-  color: var(--primary-white);
-}
-
-.hero-content a p {
-  font-weight: 700;
-  line-height: 1.2;
-  margin: auto;
-  color: var(--primary-color);
-  text-decoration: none;
-  border-radius: 10px;
-  padding: 1rem;
-  background-color: var(--primary-white);
-  transition: all var(--transition-base);
-  max-width: 50%;
-}
-
-.hero-img-container {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
 .circle {
   position: absolute;
   border: 8px solid var(--color-pink-pastel);
@@ -199,48 +149,9 @@ section.hero-section {
   animation: pulse 3s ease-in-out infinite;
 }
 
-.circle-1 {
-  height: 100%;
-  opacity: 0.5;
-}
-
-.circle-2 {
-  height: 85%;
-  opacity: 0.3;
-  left: 8px;
-}
-
-.circle-5 {
-  height: 70%;
-  background-color: rgba(255, 109, 158, 0.69);
-  filter: blur(50px);
-  left: 2rem;
-  position: absolute;
-  border-radius: 100%;
-  aspect-ratio: 1 / 1;
-  z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
 /* ================================
    Health Section
    ================================ */
-.health-section {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px;
-  direction: rtl;
-  background: linear-gradient(
-    270deg,
-    var(--color-pink-light) 0%,
-    var(--primary-white) 100%
-  );
-  max-height: 600px;
-}
 
 .health-text {
   opacity: 0;
@@ -685,15 +596,6 @@ section.hero-section {
 @media (max-width: 992px) {
 }
 @media (max-width: 768px) {
-  section.hero-section {
-    height: auto;
-    min-height: 500px;
-  }
-
-  .hero-content a p {
-    padding: 0.5rem;
-  }
-
   #pink-bg {
     position: absolute;
     left: 50%;
@@ -769,10 +671,6 @@ section.hero-section {
 }
 
 @media (max-width: 576px) {
-  section.hero-section {
-    min-height: 300px;
-  }
-
   .hero-content p {
     margin-bottom: 8px;
   }
@@ -809,10 +707,6 @@ section.hero-section {
 }
 
 @media (max-width: 480px) {
-  section.hero-section {
-    min-height: 250px;
-  }
-
   .circle {
     border-width: 2px;
   }
