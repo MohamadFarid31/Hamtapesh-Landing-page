@@ -1,227 +1,221 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const img = document.getElementById("hero-img");
-  const bg = document.getElementById("pink-bg");
+// Constants
+const MOBILE_BREAKPOINT = 768;
+const HEALTH_ANIMATION_DELAY = 250;
+const HEALTH_INTERSECTION_THRESHOLD = 0.4;
+const COLORS = {
+  primary: "#c83067",
+  default: "#292D32",
+};
 
-  const circle1 = document.querySelector(".circle-1");
-  const circle2 = document.querySelector(".circle-2");
-  const circle3 = document.querySelector(".circle-3");
-  const circle4 = document.querySelector(".circle-4");
+// Hero Section - Background & Circles
+const initHeroSection = () => {
+  const elements = {
+    img: document.getElementById("hero-img"),
+    bg: document.getElementById("pink-bg"),
+    circles: [
+      document.querySelector(".circle-1"),
+      document.querySelector(".circle-2"),
+      document.querySelector(".circle-3"),
+      document.querySelector(".circle-4"),
+    ],
+  };
 
-  if (!img || !bg || !circle1 || !circle2 || !circle3 || !circle4) return;
+  if (!elements.img || !elements.bg || elements.circles.some((c) => !c)) return;
 
-  // تنظیم ارتفاع بک‌گراند
-  function updateBgHeight() {
-    const imgHeight = img.offsetHeight;
-    if (imgHeight > 0) bg.style.height = imgHeight * 0.8 + "px";
-  }
+  const updateBgHeight = () => {
+    const imgHeight = elements.img.offsetHeight;
+    if (imgHeight > 0) {
+      elements.bg.style.height = `${imgHeight * 0.8}px`;
+    }
+  };
 
-  // الگوریتم تنظیم موقعیت و ارتفاع دایره‌ها
-  function adjustCirclePosition() {
+  const adjustCirclePosition = () => {
+    const [circle1, circle2, circle3, circle4] = elements.circles;
     const h1 = circle1.offsetHeight;
     const h2 = circle2.offsetHeight;
-
-    // بررسی اندازه‌ی صفحه (media query در JS)
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const isMobile = window.matchMedia(
+      `(max-width: ${MOBILE_BREAKPOINT}px)`
+    ).matches;
     const offset = isMobile ? 12 : 8;
-
-    const diffMinusOffset = h1 - h2 - offset;
     const diff = h1 - h2;
+    const diffMinusOffset = diff - offset;
 
-    // circle1
     circle1.style.left = `${-diffMinusOffset / 2}px`;
 
-    // circle3
-    const h3 = h2 - (h1 - h2);
+    const h3 = h2 - diff;
     circle3.style.height = `${h3}px`;
     circle3.style.left = `${diff / 2 + 10}px`;
 
-    // circle4
     const h4 = h3 - (h2 - h3);
     circle4.style.height = `${h4}px`;
-    const px = isMobile ? 12 : 10;
-    circle4.style.left = `${diff + px}px`;
-  }
+    circle4.style.left = `${diff + (isMobile ? 12 : 10)}px`;
+  };
 
-  // تابع اصلی بروزرسانی
-  function safeUpdate() {
+  const updateLayout = () => {
     updateBgHeight();
     adjustCirclePosition();
-  }
+  };
 
-  if (img.complete) {
-    safeUpdate();
+  if (elements.img.complete) {
+    updateLayout();
   } else {
-    img.onload = safeUpdate;
+    elements.img.onload = updateLayout;
   }
 
-  window.addEventListener("resize", safeUpdate);
-});
-document.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("resize", updateLayout);
+};
+
+// Health Section - Animated Circles
+const initHealthSection = () => {
   const section = document.querySelector(".health-section");
   const circles = document.querySelectorAll(".health-circle");
   const text = document.querySelector(".health-text");
 
   if (!section || circles.length === 0 || !text) return;
 
-  // فعال‌سازی انیمیشن‌ها
   const activateElements = () => {
     text.classList.add("active");
-
     circles.forEach((circle, index) => {
       setTimeout(() => {
         circle.classList.add("active");
-      }, index * 250);
+      }, index * HEALTH_ANIMATION_DELAY);
     });
   };
 
-  // بازگشت به حالت اولیه
   const resetElements = () => {
     text.classList.remove("active");
     circles.forEach((circle) => circle.classList.remove("active"));
   };
 
-  // مشاهده ورود/خروج سکشن
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) activateElements();
-        else resetElements();
+        if (entry.isIntersecting) {
+          activateElements();
+        } else {
+          resetElements();
+        }
       });
     },
-    { threshold: 0.4 }
+    { threshold: HEALTH_INTERSECTION_THRESHOLD }
   );
 
   observer.observe(section);
-});
+};
 
-const btnIOS = document.getElementById("btn-ios");
-const btnAndroid = document.getElementById("btn-android");
-const iosLinks = document.getElementById("ios-links");
-const androidLinks = document.getElementById("android-links");
-const phoneImage = document.getElementById("phone-image");
+// OS Selector - Toggle iOS/Android
+const initOSSelector = () => {
+  const elements = {
+    btnIOS: document.getElementById("btn-ios"),
+    btnAndroid: document.getElementById("btn-android"),
+    iosLinks: document.getElementById("ios-links"),
+    androidLinks: document.getElementById("android-links"),
+    phoneImage: document.getElementById("phone-image"),
+  };
 
-btnIOS.addEventListener("click", () => {
-  // Remove classes from iOS button
-  btnIOS.classList.remove(
+  if (Object.values(elements).some((el) => !el)) return;
+
+  const activeClasses = ["bg-pink-300", "text-white"];
+  const inactiveClasses = [
     "text-gray-600",
     "bg-white",
     "border",
-    "border-gray-200"
-  );
+    "border-gray-200",
+  ];
 
-  // Add active classes to iOS button
-  btnIOS.classList.add("bg-pink-300", "text-white");
+  const toggleButton = (activeBtn, inactiveBtn, isActive) => {
+    const activeSvg = activeBtn.querySelector("svg");
+    const inactiveSvg = inactiveBtn.querySelector("svg");
 
-  // Update iOS SVG color
-  const iosSvg = btnIOS.querySelector("svg");
-  iosSvg.classList.remove("text-gray-600");
-  iosSvg.classList.add("text-white");
+    if (isActive) {
+      activeBtn.classList.remove(...inactiveClasses);
+      activeBtn.classList.add(...activeClasses);
+      activeSvg.classList.remove("fill-gray-600");
+      activeSvg.classList.add("fill-white");
 
-  // Remove active classes from Android button
-  btnAndroid.classList.remove("bg-pink-300", "text-white");
-  btnAndroid.classList.add(
-    "text-gray-600",
-    "bg-white",
-    "border",
-    "border-gray-200"
-  );
+      inactiveBtn.classList.remove(...activeClasses);
+      inactiveBtn.classList.add(...inactiveClasses);
+      inactiveSvg.classList.remove("fill-white");
+      inactiveSvg.classList.add("fill-gray-600");
+    }
+  };
 
-  // Update Android SVG color
-  const androidSvg = btnAndroid.querySelector("svg");
-  androidSvg.classList.remove("text-white");
-  androidSvg.classList.add("text-gray-600");
+  elements.btnIOS.addEventListener("click", () => {
+    toggleButton(elements.btnIOS, elements.btnAndroid, true);
+    elements.iosLinks.classList.remove("hidden");
+    elements.androidLinks.classList.add("hidden");
+    elements.phoneImage.src = "assets/ios-phone.svg";
+    elements.phoneImage.alt = "iOS App";
+  });
 
-  iosLinks.classList.remove("hidden");
-  androidLinks.classList.add("hidden");
-  phoneImage.src = "assets/ios-phone.svg";
-});
+  elements.btnAndroid.addEventListener("click", () => {
+    toggleButton(elements.btnAndroid, elements.btnIOS, true);
+    elements.androidLinks.classList.remove("hidden");
+    elements.iosLinks.classList.add("hidden");
+    elements.phoneImage.src = "assets/android-phone.svg";
+    elements.phoneImage.alt = "Android App";
+  });
+};
 
-btnAndroid.addEventListener("click", () => {
-  // Remove classes from Android button
-  btnAndroid.classList.remove(
-    "text-gray-600",
-    "bg-white",
-    "border",
-    "border-gray-200"
-  );
-
-  // Add active classes to Android button
-  btnAndroid.classList.add("bg-pink-300", "text-white");
-
-  // Update Android SVG color
-  const androidSvg = btnAndroid.querySelector("svg");
-  androidSvg.classList.remove("text-gray-600");
-  androidSvg.classList.add("text-white");
-
-  // Remove active classes from iOS button
-  btnIOS.classList.remove("bg-pink-300", "text-white");
-  btnIOS.classList.add(
-    "text-gray-600",
-    "bg-white",
-    "border",
-    "border-gray-200"
-  );
-
-  // Update iOS SVG color
-  const iosSvg = btnIOS.querySelector("svg");
-  iosSvg.classList.remove("text-white");
-  iosSvg.classList.add("text-gray-600");
-
-  androidLinks.classList.remove("hidden");
-  iosLinks.classList.add("hidden");
-  phoneImage.src = "assets/android-phone.svg";
-});
-document.addEventListener("DOMContentLoaded", () => {
+// FAQ Accordion
+const initFAQ = () => {
   const items = document.querySelectorAll(".faq-item");
+  if (items.length === 0) return;
 
-  // بستن همه
-  items.forEach((item) => closeItem(item));
+  const toggleItem = (item, shouldOpen) => {
+    const body = item.querySelector(".faq-body");
+    const icon = item.querySelector(".faq-icon");
+    const title = item.querySelector("h3");
 
-  // باز کردن اولی
-  openItem(items[0]);
+    if (!body || !icon || !title) return;
+
+    const action = shouldOpen ? "add" : "remove";
+    body.classList[action]("open");
+    icon.classList[action]("rotate-180");
+    title.classList[action]("text-pink-500");
+  };
+
+  // Initialize: Close all, open first
+  items.forEach((item) => toggleItem(item, false));
+  toggleItem(items[0], true);
 
   items.forEach((item) => {
     const header = item.querySelector(".faq-header");
+    if (!header) return;
 
     header.addEventListener("click", () => {
       const body = item.querySelector(".faq-body");
-      const isOpen = body.classList.contains("open");
+      const isOpen = body?.classList.contains("open");
 
-      // بستن بقیه
-      items.forEach(closeItem);
-
-      if (!isOpen) openItem(item);
+      items.forEach((i) => toggleItem(i, false));
+      if (!isOpen) toggleItem(item, true);
     });
   });
+};
 
-  function openItem(item) {
-    const body = item.querySelector(".faq-body");
-    const icon = item.querySelector(".faq-icon");
-    const title = item.querySelector("h3");
+// Footer Links Hover Effect
+const initFooterLinks = () => {
+  const footerLinks = document.querySelectorAll("footer li");
 
-    body.classList.add("open");
-    icon.classList.add("rotate-180");
-    title.classList.add("text-pink-500");
-  }
+  footerLinks.forEach((li) => {
+    const svgPaths = li.querySelectorAll("svg path");
+    if (svgPaths.length === 0) return;
 
-  function closeItem(item) {
-    const body = item.querySelector(".faq-body");
-    const icon = item.querySelector(".faq-icon");
-    const title = item.querySelector("h3");
+    li.addEventListener("mouseenter", () => {
+      svgPaths.forEach((path) => path.setAttribute("stroke", COLORS.primary));
+    });
 
-    body.classList.remove("open");
-    icon.classList.remove("rotate-180");
-    title.classList.remove("text-pink-500");
-  }
-});
+    li.addEventListener("mouseleave", () => {
+      svgPaths.forEach((path) => path.setAttribute("stroke", COLORS.default));
+    });
+  });
+};
 
-const li = document.querySelector("li");
-const svgPaths = li.querySelectorAll("svg path");
-
-li.addEventListener("mouseenter", () => {
-  svgPaths.forEach((p) => p.setAttribute("stroke", "#c83067")); // رنگ دلخواه
-});
-
-li.addEventListener("mouseleave", () => {
-  svgPaths.forEach((p) => p.setAttribute("stroke", "#292D32")); // رنگ اولیه
+// Initialize all modules
+document.addEventListener("DOMContentLoaded", () => {
+  initHeroSection();
+  initHealthSection();
+  initOSSelector();
+  initFAQ();
+  initFooterLinks();
 });
